@@ -15,7 +15,7 @@ public class Main {
            System.out.println("1. Agregar empleado");
            System.out.println("2. Listar empleados");
            System.out.println("3. Actualizar salario");
-           System.out.println("4. Elimminar empleado");
+           System.out.println("4. Eliminar empleado");
            System.out.println("5. Salir");
            System.out.println("Seleccione una opción:");
 
@@ -32,6 +32,28 @@ public class Main {
 
                case 2: // listar todos los empleados
                    gestion.listarEmpleados();// Llama al metodo para listar empleados
+                   break;
+
+               case 3: //Actualizar el salario de un trabajador
+                   System.out.print("Ingrese ID del empleado: "); //Se solicita el ID del trabajador
+                   int idActualizar = entrada.nextInt(); //Captura el ID ingresado por el usuario
+                   System.out.print("Ingrese nuevo salario: "); //Se solicita el nuevo salario para el trabajador
+                   double nuevoSalario = entrada.nextDouble(); //Se captura el nuevo salario ingresado por el usuario
+                   gestion.actualizarSalario(idActualizar, nuevoSalario); // Llama al metodo actualizarSalario de la clase gestion para modificar el salario del empleado con el ID ingresado
+                   break; //Se rompe la ejecucion del codigo para evitar que se ejecuten los demas casos
+
+               case 4: //Eliminar un empleado
+                   System.out.print("Ingrese ID del empleado a eliminar: "); //Solicita el ID del empleado
+                   int idEliminar = entrada.nextInt(); //Captura el ID ingresado por el usuario
+                   gestion.eliminarEmpleado(idEliminar); // Llama al metodo eliminarEmpleado de la clase gestion para eliminar el empleado correspondiente al ID ingresado
+                   break;
+
+               case 5: //Salir
+                   System.out.println("Saliendo del sistema..."); //Se muestra un mensaje que indica que el codigo se dejara de ejecutar
+                   break;
+
+               default:
+                   System.out.println("Opción no válida."); //En caso de que se ingrese una opcion no valida se mostrara este mensaje
            }
        } while (opcion !=5);// El bucle continúa hasta que el usuario elija salir
 
